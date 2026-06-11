@@ -26,8 +26,8 @@ jobs:
 
       - name: Deploy WAR to Tomcat
         run: |
-          cp target/simple-webapp.war /opt/tomcat/webapps/
+          cp target/simple-webapp.war /var/lib/tomcat10/webapps
 
       - name: Verify Deployment
         run: |
-          ls -l /opt/tomcat/webapps/
+          ls -l /var/lib/tomcat10/webapps
