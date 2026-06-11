@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>Hello from Tomcat 10!</h1>
+<h1>Version 2 Deployment Success!</h1>
 
 <h2>Deployment Successful</h2>
 
