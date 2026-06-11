@@ -1,0 +1,33 @@
+name: Java Maven CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+
+    runs-on: self-hosted
+
+    steps:
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build Maven Project
+        run: mvn clean package
+
+      - name: Deploy WAR to Tomcat
+        run: |
+          cp target/simple-webapp.war /opt/tomcat/webapps/
+
+      - name: Verify Deployment
+        run: |
+          ls -l /opt/tomcat/webapps/
